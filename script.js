@@ -10,6 +10,7 @@ function reload() {
 async function fetchNews(query) {
     const res = await fetch(`${url}${query}&apiKey=${API_KEY}`);
     const data = await res.json();
+    // console.log(data.articles)
     bindData(data.articles);
 }
 
@@ -19,12 +20,19 @@ function bindData(articles) {
 
     cardsContainer.innerHTML = "";
 
-    articles.forEach((article) => {
-        if (!article.urlToImage) return;
+    // articles.forEach((article) => {
+    //     if (!article.urlToImage) return;
+    //     const cardClone = newsCardTemplate.content.cloneNode(true);
+    //     fillDataInCard(cardClone, article);
+    //     cardsContainer.appendChild(cardClone);
+    // });
+    for (let index = 0; index < articles.length; index++) {
+        // const element = articles[index];
+        if (!articles[index].urlToImage) return;
         const cardClone = newsCardTemplate.content.cloneNode(true);
-        fillDataInCard(cardClone, article);
+        fillDataInCard(cardClone, articles[index]);
         cardsContainer.appendChild(cardClone);
-    });
+    }
 }
 
 function fillDataInCard(cardClone, article) {
