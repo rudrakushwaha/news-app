@@ -124,7 +124,17 @@ main {
     row-gap: 20px;
     align-items: start;
 }
-
+#news-link{
+    color: rgb(200, 200, 210);
+    cursor: pointer;
+    /* margin-top: 1rem; */
+}
+a{
+    margin-top: 2rem;
+}
+#cards-container > div:nth-child(1) > div.card-content a{
+    margin-top: 2rem;
+}
 .card {
     width: 360px;
     min-height: 400px;
