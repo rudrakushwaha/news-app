@@ -11,13 +11,13 @@ async function fetchNews(query) {
     const res = await fetch(`${url}${query}&apiKey=${API_KEY}`);
     const data = await res.json();
     // console.log(data.articles)
-    bindData(data.articles);
+    await bindData(data.articles);
 }
 
 function bindData(articles) {
     const cardsContainer = document.getElementById("cards-container");
     const newsCardTemplate = document.getElementById("template-news-card");
-
+    console.log(articles)
     cardsContainer.innerHTML = "";
 
     // articles.forEach((article) => {
